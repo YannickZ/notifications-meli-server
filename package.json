@@ -1,0 +1,20 @@
+{
+  "name": "notifications-meli-server",
+  "version": "1.0.0",
+  "description": "Rest api that exposes several endpoints to push notifications to the client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "mkdir build && node_modules/.bin/babel src -s -D -d ./build/dist",
+    "dev" : "node_modules/.bin/babel-node src/server.js"
+  },
+  "author": "Yannick Stevenin",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30",
+    "mongoskin": "^2.1.0"
+  }
+}
