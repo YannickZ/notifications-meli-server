@@ -1,0 +1,23 @@
+[
+  {
+    "group_name":"developer",
+    "notification_tags": [
+      "deploy"
+    ]
+  },
+  {
+    "group_name":"architect",
+    "notification_tags": [
+      "deploy",
+      "info"
+    ]
+  },
+  {
+    "group_name":"manager",
+    "notification_tags": [
+      "deploy",
+      "release",
+      "metrics"
+    ]
+  }
+]

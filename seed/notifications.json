@@ -1,0 +1,42 @@
+[
+  {
+    "message":"El tag 1.2 fue correctamente deployado.",
+    "type":"deploy",
+    "application": "mercado pago",
+    "priority": 7,
+    "destination" : [
+      "web notification",
+      "email",
+      "push"
+    ]
+  },
+  {
+    "message":"Nuevos features(9.0.0) en produccion funcionando correctamente.",
+    "type":"release",
+    "application": "meli website",
+    "priority": 3,
+    "destination" : [
+      "web notification",
+      "email"
+    ]
+  },
+  {
+    "message":"El tag 1.2 fue correctamente deployado.",
+    "type":"info",
+    "application": "mercado creditos",
+    "priority": 7,
+    "destination" : [
+      "web notification",
+      "push"
+    ]
+  },
+  {
+    "message":"El tag 1.2 fue correctamente deployado.",
+    "type":"deploy",
+    "application": "mercado pago",
+    "priority": 7,
+    "destination" : [
+      "web notification"
+    ]
+  }
+]

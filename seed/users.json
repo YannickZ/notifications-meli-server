@@ -1,0 +1,38 @@
+[
+  {
+    "username" : "juan",
+    "password" : "123asd",
+    "userGroup" : "developer123",
+    "subscribed_applications": [
+      "mercado pago",
+      "meli website"
+    ],
+    "read_notifications": [
+        "123456"
+    ]
+  },
+  {
+    "username" : "pilar",
+    "password" : "architect123",
+    "userGroup" : "architect",
+    "subscribed_applications": [
+      "mercado pago",
+      "mercado credito"
+    ],
+    "read_notifications": [
+        "123456"
+    ]
+  },
+  {
+    "username" : "ernesto",
+    "password" : "manager123",
+    "userGroup" : "manager",
+    "subscribed_applications": [
+      "mercado pago",
+      "intern app"
+    ],
+    "read_notifications": [
+      "123456"
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 ## Introducción
- - Para instalar y correr este proyecto, es necesario tener Node.js y mongodb instaladas.
+ - Para instalar y correr este proyecto, es necesario tener Node.js y una instancia de mongodb instalada y corriendo.
 
 ## Tecnologías
  - Node.js
@@ -17,4 +17,3 @@ $ node_modules/.bin/bower install
 ```sh
 $ npm run dev
 ```
-
