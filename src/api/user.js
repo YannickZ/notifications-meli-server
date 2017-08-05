@@ -12,5 +12,13 @@ export const all_users = (req, res) =>{
     if(err) throw(err);
     return res.json(doc);
   })
+}
 
+export const user_by_id = (req, res) =>{
+  const users = db.collection('users')
+  const id = new ObjectId(req.params.id)
+  users.findOne({'_id':id},(err,doc) =>{
+      if(err) throw(err);
+      return res.json(doc);
+  })
 }

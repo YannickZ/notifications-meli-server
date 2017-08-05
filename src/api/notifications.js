@@ -14,3 +14,13 @@ export const all_notifications = (req, res) =>{
   })
 
 }
+
+export const notifications_by_id = (req, res) =>{
+  const notifications = db.collection('notifications')
+  const id = new ObjectId(req.params.id)
+  notifications.findOne({'_id':id},(err,doc) =>{
+      if(err) throw(err);
+      return res.json(doc);
+  })
+
+}

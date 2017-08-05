@@ -14,3 +14,12 @@ export const all_groups = (req, res) =>{
   })
 
 }
+
+export const group_by_name = (req, res) =>{
+  const userGroup = db.collection('userGroup')
+  const name = req.params.name
+  userGroup.findOne({'group_name' : name},(err,doc) =>{
+    if(err) throw(err);
+    return res.json(doc);
+  })
+}
