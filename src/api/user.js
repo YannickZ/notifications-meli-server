@@ -22,3 +22,22 @@ export const user_by_id = (req, res) =>{
       return res.json(doc);
   })
 }
+
+
+export const read_user_notification = (req, res) =>{
+  const users = db.collection('users')
+  const user_id = new ObjectId(req.body.user_id)
+  const notification_id = req.body.notification_id
+  users.update(
+              {
+                "_id" : user_id
+              },
+              {
+                $addToSet: {
+                  'read_notifications': notification_id
+              }
+            }, (err,response) =>{
+      res.status = 204
+      res.json({"status" : "ok", "message" : "Resource updated correctly."});
+    })
+}

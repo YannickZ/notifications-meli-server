@@ -3,3 +3,4 @@ build
 *.swp
 *.log
 *.out
+package-lock.json
