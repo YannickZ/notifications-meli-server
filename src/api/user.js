@@ -6,6 +6,24 @@ const ObjectId = require('mongodb').ObjectID;
 const mongoUri = 'mongodb://localhost:27017/notifications-meli-server';
 const db = mongosking.db(mongoUri, {native_parser:true})
 
+
+
+export const create_user = (req, res) =>{
+   const users = db.collection('users')
+   users.findOne({"username" : req.body.username}, (err,doc) => {
+     if (err) throw (err);
+     if (doc) {
+        res.json({"status":"error", "message": "Username already exists"})
+     } else {
+       users.insertOne(req.body, (err, resp) =>{
+          if (err) throw (err);
+          res.json({"status" : "ok", "message" : "Record inserted correctly"})
+       })
+     }
+   })
+}
+
+
 export const all_users = (req, res) =>{
   const users = db.collection('users')
   users.find({}).toArray( (err, doc) =>{
