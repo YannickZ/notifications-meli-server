@@ -3,7 +3,7 @@ import { Router } from 'express'
 import {login} from './auth'
 import {all_notifications, notifications_by_id, delete_notification, create_notification} from './notifications'
 import {all_users, user_by_id, read_user_notification, create_user} from './user'
-import {all_groups, group_by_name} from './userGroup'
+import {all_groups, group_by_name, create_user_group} from './userGroup'
 
 
 
@@ -51,6 +51,9 @@ export default (db) => {
 
 
 /******* UserGroup endpoints *******/
+	/* Endpoint to insert a new user group */
+	api.post('/user_group' , create_user_group)
+
 	/* Endpoint to get all user groups */
 	api.get('/user_groups', all_groups)
 
