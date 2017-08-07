@@ -24,12 +24,22 @@ export const notifications_by_id = (req, res) =>{
   })
 }
 
-  export const delete_notification = (req,res) => {
-    const notifications = db.collection('notifications')
-    const id = new ObjectId(req.params.id)
-    notifications.remove({'_id' : id}, (err, result) =>{
-      if(err) throw (err);
-      res.status = 200
-      res.json({"status" : "ok", "message" : result.result.n + " notifications deleted."})
-    })
-  }
+
+export const create_notification = (req, res) =>{
+   const notifications = db.collection('notifications')
+   notifications.insertOne(req.body, (err, resp) =>{
+      if (err) throw (err);
+      res.json({"status" : "ok", "message" : "Record inserted correctly"})
+   })
+
+}
+
+export const delete_notification = (req,res) => {
+  const notifications = db.collection('notifications')
+  const id = new ObjectId(req.params.id)
+  notifications.remove({'_id' : id}, (err, result) =>{
+    if(err) throw (err);
+    res.status = 200
+    res.json({"status" : "ok", "message" : result.result.n + " notifications deleted."})
+  })
+}

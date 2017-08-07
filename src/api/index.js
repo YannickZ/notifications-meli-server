@@ -1,7 +1,7 @@
 import path from 'path'
 import { Router } from 'express'
 import {login} from './auth'
-import {all_notifications, notifications_by_id, delete_notification} from './notifications'
+import {all_notifications, notifications_by_id, delete_notification, create_notification} from './notifications'
 import {all_users, user_by_id, read_user_notification} from './user'
 import {all_groups, group_by_name} from './userGroup'
 
@@ -13,6 +13,11 @@ export default (db) => {
 	const api = Router()
 
 /******* Notifications endpoints *******/
+
+  /* Endpoint to create a notification */
+	/*curl example curl -X POST -H "Content-Type: application/json" -d '{"message" : "Nuevos features(9.0.0) en produccion funcionando correctamente.", "type" : "release", "application" : "meli website", "priority" : 3, "destination" : [ "web notification", "email" ]}' 'localhost:8080/api/notification'*/
+	api.post('/notification', create_notification)
+
 	/* Endpoint to get all notifications */
 	api.get('/notifications', all_notifications)
 
