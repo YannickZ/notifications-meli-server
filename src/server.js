@@ -20,6 +20,13 @@ app.use( (req, res, next) => {
 	next()
 })
 
+
+const errorHandler = (err, req, res, next) => {
+  res.status(500);
+  res.render('error', { error: err });
+}
+
+app.use(errorHandler);
 app.use('/api', api(db))
 
 
