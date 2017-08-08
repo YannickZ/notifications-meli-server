@@ -11,7 +11,10 @@ const validate = (username, password, callback) => {
     const users = db.collection('users')
     var user = {}
     users.findOne({'username': username, 'password': password}, (err,doc) => {
-      if (err) throw (err);
+      if (err){
+        res.status = 500
+        res.json({"status" : "error", "message": err.toString()})
+      }
       callback(null,doc)
     })
 }
