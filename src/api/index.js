@@ -4,6 +4,7 @@ import {login} from './auth'
 import {all_notifications, notifications_by_id, delete_notification, create_notification} from './notifications'
 import {all_users, user_by_id, read_user_notification, create_user} from './user'
 import {all_groups, group_by_name, create_user_group} from './userGroup'
+import {user_notifications} from './utils'
 
 
 
@@ -29,8 +30,10 @@ export default (db) => {
 
 
 /******* Authentication endpoints *******/
+
 	/* Endpoint for authentication, curl -X POST -H "Content-Type: application/json" -d '{"username":"juan","password":"123asd"}' 'localhost:8080/api/login' */
 	api.post('/login', login);
+
 
 /******* User endpoints *******/
 
@@ -52,6 +55,7 @@ export default (db) => {
 
 /******* UserGroup endpoints *******/
 	/* Endpoint to insert a new user group */
+	/* curl example curl -X POST -H "Content-Type: application/json" -d '  {"group_name":"sarasa","notification_tags": ["deploy","info"]}' 'localhost:8080/api/user_group'*/
 	api.post('/user_group' , create_user_group)
 
 	/* Endpoint to get all user groups */
@@ -60,6 +64,9 @@ export default (db) => {
 	/* Endpoint to get a user group by name */
 	api.get('/user_groups/:name', group_by_name)
 
+/******* Get all notifications by user, including business logic *******/
+ // The notifications must be filtered by the read notifications, and the ones that include every app that the user is subscribed to. They also have to be sorted by priority
+	api.get('/user/:username/notifications', user_notifications)
 
 	return api
 }

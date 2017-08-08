@@ -2,7 +2,7 @@
   {
     "username" : "juan",
     "password" : "123asd",
-    "userGroup" : "developer123",
+    "userGroup" : "developer",
     "subscribed_applications": [
       "mercado pago",
       "meli website"
