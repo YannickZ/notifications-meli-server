@@ -47,7 +47,7 @@ export default (db) => {
 	/* Endpoint to get a single user by id */
 	api.get('/users/:id', user_by_id)
 
-	/* Endpoint to get a single user by id */
+	/* Endpoint to get a single user by username */
 	api.get('/users/username/:name', user_by_username)
 
 	/* Endpoint to mark a notification as read for an especific user only if the notification hasnt been marked as read for that user*/
