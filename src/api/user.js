@@ -10,6 +10,7 @@ const db = mongosking.db(mongoUri, {native_parser:true})
 
 export const create_user = (req, res) =>{
    const users = db.collection('users')
+   const userGroup = db.collection('userGroup')
    users.findOne({"username" : req.body.username}, (err,doc) => {
      if (err){
        res.status = 500
@@ -18,12 +19,22 @@ export const create_user = (req, res) =>{
      if (doc) {
         res.json({"status":"error", "message": "Username already exists"})
      } else {
-       users.insertOne(req.body, (err, resp) =>{
+       userGroup.findOne({'group_name' : req.body.userGroup},(err,doc) =>{
          if (err){
            res.status = 500
            res.json({"status" : "error", "message": err.toString()})
          }
-          res.json({"status" : "ok", "message" : "Record inserted correctly"})
+         if (doc){
+           users.insertOne(req.body, (err, resp) =>{
+             if (err){
+               res.status = 500
+               res.json({"status" : "error", "message": err.toString()})
+             }
+              res.json({"status" : "ok", "message" : "Record inserted correctly"})
+           })
+         } else {
+           res.json({"status" : "error", "message" : "The user group does not exist."})
+         }
        })
      }
    })
