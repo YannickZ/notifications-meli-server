@@ -16,6 +16,7 @@ export const user_notifications = (req, res) => {
 
     users.findOne({'username' : req.params.username},(err, user)=>{
     	if (err) throw (err);
+      const userb =  user;
     	userGroup.findOne({'group_name' : user.userGroup},(err, user_group)=>{
         if (err) throw (err);
     		notifications.find({"type" : {$in : user_group.notification_tags }}).toArray( (err, notifications) => {
@@ -30,7 +31,7 @@ export const user_notifications = (req, res) => {
           filteredNotifications = filteredNotifications.sort((a,b) => {
                       return b.priority - a.priority
           })
-          res.json({"status" : "ok", "notifications":filteredNotifications})
+          res.json({"status" : "ok", "user" : userb, "notifications":filteredNotifications})
     })
     	})
     })
