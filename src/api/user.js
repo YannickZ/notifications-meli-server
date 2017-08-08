@@ -64,6 +64,17 @@ export const user_by_id = (req, res) =>{
   })
 }
 
+export const user_by_username = (req, res) =>{
+  const users = db.collection('users')
+  const name = req.params.name
+  users.findOne({'username': name},(err,doc) =>{
+    if (err){
+      res.status = 500
+      res.json({"status" : "error", "message": err.toString()})
+    }
+      return res.json(doc);
+  })
+}
 
 export const read_user_notification = (req, res) =>{
   const users = db.collection('users')

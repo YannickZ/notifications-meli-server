@@ -2,7 +2,7 @@ import path from 'path'
 import { Router } from 'express'
 import {login} from './auth'
 import {all_notifications, notifications_by_id, delete_notification, create_notification} from './notifications'
-import {all_users, user_by_id, read_user_notification, create_user} from './user'
+import {all_users, user_by_id, read_user_notification, create_user, user_by_username} from './user'
 import {all_groups, group_by_name, create_user_group} from './userGroup'
 import {user_notifications} from './utils'
 
@@ -46,6 +46,9 @@ export default (db) => {
 
 	/* Endpoint to get a single user by id */
 	api.get('/users/:id', user_by_id)
+
+	/* Endpoint to get a single user by id */
+	api.get('/users/username/:name', user_by_username)
 
 	/* Endpoint to mark a notification as read for an especific user only if the notification hasnt been marked as read for that user*/
 	/* curl example curl -i -X PUT -H 'Content-Type: application/json' -d '{"user_id": "5988d90007a588f2561cda1c","notification_id":"5984f3619decee47c0388838"}' http://localhost:8080/api/user/notification */
