@@ -38,5 +38,15 @@
     "destination" : [
       "web notification"
     ]
+  },
+  {
+    "message":"Nuevos features(9.0.0) en produccion funcionando correctamente.",
+    "type":"deploy",
+    "application": "meli website",
+    "priority": 3,
+    "destination" : [
+      "web notification",
+      "email"
+    ]
   }
 ]

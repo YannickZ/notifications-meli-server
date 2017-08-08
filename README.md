@@ -10,7 +10,6 @@
 
 ```sh
 $ npm i
-$ node_modules/.bin/bower install
 ```
 
 ## Ejecución

@@ -33,7 +33,7 @@ export const user_notifications = (req, res) => {
 
           //Just in case es6 syntax is not that clear, im filtering the notifications array with 2 criteria = 1) The notifications mustn't be in the array of user's read notifications 2) The notification must be in the user's array of subscribed applications.
 
-          let filteredNotifications = notifications.filter(obj => {return !user.read_notifications.includes(obj._id) }).filter(obj => {return user.subscribed_applications.includes(obj.application)})
+          let filteredNotifications = notifications.filter(obj => {return !user.read_notifications.includes(obj._id) && user.subscribed_applications.includes(obj.application)})
 
           // Sorting data so it is returned order by priority
 
